@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Удалить пациента "{{ object.name }}"?</h1>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить пациента "{{ object.name }}"?</p>
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    <a href="{% url 'patient_detail' object.pk %}" class="btn btn-secondary">Отмена</a>
+  </form>
+{% endblock %}

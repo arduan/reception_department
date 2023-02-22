@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Информация о пациенте "{{ object.name }}"</h1>
+
+  <p>Врач: {{ object.doctor.name }}</p>
+  <p>Возраст: {{ object.age }}</p>
+  <p>Адрес: {{ object.address }}</p>
+  <p>Телефон: {{ object.phone }}</p>
+  <p>Дата поступления: {{ object.date_admitted }}</p>
+  <p>Примечание: {{ object.note }}</p>
+
+  <a href="{% url 'patient_edit' object.pk %}">Редактировать информацию о пациенте</a>
+  <form action="{% url 'patient_delete' object.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Удалить пациента</button>
+  </form>
+{% endblock %}

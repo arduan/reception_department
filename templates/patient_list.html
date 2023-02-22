@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Список пациентов</h1>
+
+  <ul>
+    {% for patient in object_list %}
+      <li>
+        <a href="{% url 'patient_detail' patient.pk %}">{{ patient.name }}</a>
+        ({{ patient.doctor.name }})
+      </li>
+    {% empty %}
+      <p>Нет пациентов.</p>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'patient_new' %}">Добавить нового пациента</a>
+{% endblock%}
