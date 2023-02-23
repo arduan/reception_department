@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Patient(models.Model):
     """Модель пациента"""
 
@@ -15,6 +16,7 @@ class Patient(models.Model):
 
     def __str__(self):
         return f'{self.surname} {self.name} ({self.diagnosis})'
+
 
 class Doctor(models.Model):
     """Модель врача"""
